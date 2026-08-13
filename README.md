@@ -40,7 +40,7 @@ This solution demonstrates how to:
 # 📂 Project Structure
 
 ```text
-vodafone-assessment/
+Digital-Transformation-and-Network-Automation/
 │
 ├── analyzer.py                 # Task 1: Network Log Analyzer
 ├── app.py                      # Task 3: Flask Dashboard & REST API
