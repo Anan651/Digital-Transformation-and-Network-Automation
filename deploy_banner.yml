@@ -1,0 +1,33 @@
+---
+- name: Deploy Standard Security Banner and MotD
+  hosts: all_routers
+  gather_facts: false
+  vars:
+    banner_text: |
+      ***********************************************************************
+      * WARNING: AUTHORIZED VODAFONE OPERATIONS ACCESS ONLY.                 *
+      * ALL ACTIONS ARE LOGGED AND AUDITED UNDER GOVERNANCE PROTOCOLS.       *
+      ***********************************************************************
+
+  tasks:
+    # 1. Cisco Banner Deployment
+    - name: Configure banner on Cisco routers
+      cisco.ios.ios_banner:
+        banner: motd
+        text: "{{ banner_text }}"
+        state: present
+      when: ansible_network_os == 'cisco.ios.ios'
+
+    # 2. Juniper Banner Deployment
+    - name: Configure login message on Juniper routers
+      juniper.device.junos_config:
+        lines:
+          - "set system login message \"{{ banner_text }}\""
+      when: ansible_network_os == 'juniper.device.junos'
+
+    # 3. Huawei Banner Deployment
+    - name: Configure header banner on Huawei routers
+      community.vrp.vrp_command:
+        commands:
+          - "header shell information \"{{ banner_text }}\""
+      when: ansible_network_os == 'community.vrp.vrp'
