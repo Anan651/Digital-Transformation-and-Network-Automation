@@ -53,8 +53,6 @@ vodafone-assessment/
 │   ├── 2025-10-19-mixed.txt
 │   └── 2025-10-20-critical.txt
 │
-├── Screenshots/
-│
 └── output/
     ├── events.csv
     ├── risk_report.csv
