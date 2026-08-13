@@ -1,6 +1,6 @@
 # Network Automation & Governance Solution
 
-A production-ready implementation of the Vodafone Network Automation, Digital Transformation, and Governance Technical Assessment.
+A production-ready implementation of Network Automation, Digital Transformation, and Governance Technical Assessment.
 
 This solution demonstrates how to:
 
